@@ -1,5 +1,7 @@
 package d13_09_2022;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,7 +13,7 @@ public class Zadatak1 {
 		WebDriver driver = new ChromeDriver();
 //		Zadatak
 //		Maksimizirati prozor
-
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().window().maximize();
 //		Ucitati stranicu https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
 //		Prijavite se na sistem 
@@ -19,7 +21,7 @@ public class Zadatak1 {
 //		Password: admin123
 //		Cekanje od 5s
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-		Thread.sleep(5000);
+		
 		driver.findElement(By.name("username")).sendKeys("Admin");
 		driver.findElement(By.name("password")).sendKeys("admin123");
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
@@ -35,7 +37,7 @@ public class Zadatak1 {
 //		Klinkite na logout
 //		Cekanje od 5s
 //		Zatvorite pretrazivac
-		driver.findElement(By.xpath("//header//*[text()='Paul Collings']")).click();
+		driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/header/div[1]/div[2]/ul/li")).click();
 		driver.findElement(By.linkText("Logout")).click();
 		
 		Thread.sleep(5000);
