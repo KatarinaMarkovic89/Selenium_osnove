@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -134,7 +135,8 @@ public class BootstrapTableTests {
 
 		File SourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		File DestFile = new File("img/screenshot1.png");
-		com.google.common.io.Files.copy(SourceFile, DestFile);
+		
+		FileUtils.copyFile(SourceFile, DestFile);
 
 	}
 
